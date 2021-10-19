@@ -5,7 +5,6 @@ class Search extends Component {
   render() {
     return (
       <div data-testid="page-search">
-        Search
         <Header />
       </div>
     );
