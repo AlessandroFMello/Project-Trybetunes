@@ -18,6 +18,7 @@ class Login extends Component {
     this.activateSaveButton = this.activateSaveButton.bind(this);
     this.checkNameSize = this.checkNameSize.bind(this);
     this.onEnterButtonSubmit = this.onEnterButtonSubmit.bind(this);
+    this.renderForms = this.renderForms.bind(this);
   }
 
   handleInputChange = ({ target }) => {
@@ -57,30 +58,37 @@ class Login extends Component {
     });
   }
 
+  renderForms = () => {
+    const { enterButtonDisabled } = this.state;
+    return (
+      <form onSubmit={ this.onEnterButtonSubmit }>
+        Digite Seu Nome:
+        <label htmlFor="login-name">
+          <input
+            data-testid="login-name-input"
+            type="text"
+            id="login-name"
+            onChange={ this.handleInputChange }
+          />
+        </label>
+        <button
+          type="submit"
+          data-testid="login-submit-button"
+          disabled={ enterButtonDisabled }
+        >
+          Entrar
+        </button>
+      </form>
+    );
+  }
+
   render() {
-    const { enterButtonDisabled, loading, redirect } = this.state;
+    const { loading, redirect } = this.state;
 
     return (
       <div data-testid="page-login" className="page-login">
-        {loading ? <LoadingPage /> : (redirect && <Redirect to="/search" />)}
-        <form onSubmit={ this.onEnterButtonSubmit }>
-          <label htmlFor="login-name">
-            Login
-            <input
-              data-testid="login-name-input"
-              type="text"
-              id="login-name"
-              onChange={ this.handleInputChange }
-            />
-          </label>
-          <button
-            type="submit"
-            data-testid="login-submit-button"
-            disabled={ enterButtonDisabled }
-          >
-            Entrar
-          </button>
-        </form>
+        {loading ? <LoadingPage /> : this.renderForms()}
+        {redirect && <Redirect to="/search" />}
       </div>
     );
   }

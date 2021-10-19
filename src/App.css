@@ -2,5 +2,21 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  height: 500px;
+  justify-content: center;
+}
+
+.page-login form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loading-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
   justify-content: center;
 }
