@@ -77,7 +77,6 @@ class Login extends Component {
             type="submit"
             data-testid="login-submit-button"
             disabled={ enterButtonDisabled }
-            // onClick={ this.onEnterButtonSubmit }
           >
             Entrar
           </button>
