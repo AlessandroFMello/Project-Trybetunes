@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { createUser } from '../services/userAPI';
+import LoadingPage from './LoadingPage';
 
 class Login extends Component {
   constructor() {
@@ -7,11 +10,14 @@ class Login extends Component {
     this.state = {
       id: '',
       enterButtonDisabled: true,
+      loading: false,
+      redirect: false,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.activateSaveButton = this.activateSaveButton.bind(this);
     this.checkNameSize = this.checkNameSize.bind(this);
+    this.onEnterButtonSubmit = this.onEnterButtonSubmit.bind(this);
   }
 
   handleInputChange = ({ target }) => {
@@ -31,17 +37,33 @@ class Login extends Component {
 
   checkNameSize = () => {
     const { id } = this.state;
-    const maxLength = 3;
-    if (id.length >= maxLength) {
+    const MAX_LENGTH = 3;
+    if (id.length >= MAX_LENGTH) {
       return true;
     }
   }
 
+  onEnterButtonSubmit = (event) => {
+    event.preventDefault();
+    const { id } = this.state;
+    this.setState({
+      loading: true,
+    }, async () => {
+      await createUser({ name: id });
+      this.setState({
+        loading: false,
+        redirect: true,
+      });
+    });
+  }
+
   render() {
-    const { enterButtonDisabled } = this.state;
+    const { enterButtonDisabled, loading, redirect } = this.state;
+
     return (
       <div data-testid="page-login" className="page-login">
-        <form>
+        {loading ? <LoadingPage /> : (redirect && <Redirect to="/search" />)}
+        <form onSubmit={ this.onEnterButtonSubmit }>
           <label htmlFor="login-name">
             Login
             <input
@@ -55,6 +77,7 @@ class Login extends Component {
             type="submit"
             data-testid="login-submit-button"
             disabled={ enterButtonDisabled }
+            // onClick={ this.onEnterButtonSubmit }
           >
             Entrar
           </button>
