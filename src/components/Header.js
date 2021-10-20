@@ -46,8 +46,9 @@ class Header extends Component {
             ? <LoadingPage />
             : this.renderHeader()
         }
-        <Link data-testid="link-to-search" to="./search">Pesquisar</Link>
-        <Link data-testid="link-to-favorites" to="./favorites">Favoritos</Link>
+        <Link data-testid="link-to-search" to="/search">Pesquisar</Link>
+        <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
+        <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
       </header>
     );
   }
