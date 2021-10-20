@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoadingPage from '../pages/LoadingPage';
 import { getUser } from '../services/userAPI';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class Header extends Component {
     };
 
     this.findUser = this.findUser.bind(this);
+    this.renderHeader = this.renderHeader.bind(this);
   }
 
   componentDidMount() {
@@ -30,15 +32,21 @@ class Header extends Component {
     });
   }
 
+  renderHeader = () => {
+    const { id } = this.state;
+    return (<h1 data-testid="header-user-name">{ id.name }</h1>);
+  }
+
   render() {
-    const { id, loading } = this.state;
+    const { loading } = this.state;
     return (
-      <div data-testid="header-component">
-        {loading && <LoadingPage />}
-        <h1 data-testid="header-user-name">
-          { id.name }
-        </h1>
-      </div>
+      <header data-testid="header-component">
+        {
+          loading
+            ? <LoadingPage />
+            : this.renderHeader()
+        }
+      </header>
     );
   }
 }
