@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import LoadingPage from '../pages/LoadingPage';
 import { getUser } from '../services/userAPI';
-import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor() {
@@ -46,6 +46,7 @@ class Header extends Component {
             ? <LoadingPage />
             : this.renderHeader()
         }
+        <Link data-testid="link-to-search" to="./search">Pesquisar</Link>
       </header>
     );
   }
