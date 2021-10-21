@@ -62,7 +62,7 @@ class Login extends Component {
     const { enterButtonDisabled } = this.state;
     return (
       <form onSubmit={ this.onEnterButtonSubmit }>
-        Digite Seu Nome:
+        Digite Seu Nome de Usuário:
         <label htmlFor="login-name">
           <input
             data-testid="login-name-input"
