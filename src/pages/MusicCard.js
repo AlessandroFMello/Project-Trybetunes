@@ -60,7 +60,7 @@ class MusicCard extends Component {
     return (
       <div>
         { this.renderMusics() }
-        { loading && <LoadingPage /> }
+        { loading && <LoadingPage />}
       </div>
     );
   }
