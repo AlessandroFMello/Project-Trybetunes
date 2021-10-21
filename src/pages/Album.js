@@ -37,12 +37,12 @@ class Album extends Component {
           <h3 data-testid="album-name">{album[0].collectionName}</h3>
           <div>
             {album.slice(1)
-              .map((element, index) => (
+              .map((music, index) => (
                 <MusicCard
                   key={ index }
-                  trackName={ element.trackName }
-                  previewUrl={ element.previewUrl }
-                  trackId={ element.trackId }
+                  trackName={ music.trackName }
+                  previewUrl={ music.previewUrl }
+                  trackId={ music.trackId }
                 />
               ))}
           </div>
