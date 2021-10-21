@@ -13,7 +13,7 @@ class Search extends Component {
       lastArtistResult: '',
       enterButtonDisabled: true,
       loading: false,
-      musics: [],
+      albums: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -55,7 +55,7 @@ class Search extends Component {
       const response = await searchAlbumsAPI(artist);
       this.setState({
         loading: false,
-        musics: [...response],
+        albums: [...response],
         artist: '',
       });
       document.querySelector('#search-form').value = '';
@@ -63,27 +63,27 @@ class Search extends Component {
   }
 
   renderArtist = () => {
-    const { lastArtistResult, musics } = this.state;
+    const { lastArtistResult, albums } = this.state;
     return (
       <div className="artist-section">
         {
-          (musics.length > 0)
+          (albums.length > 0)
             ? <h3>{ `Resultado de álbuns de: ${lastArtistResult}` }</h3>
             : <h3>Nenhum álbum foi encontrado</h3>
         }
-        <div className="musics-section">
-          { musics.map((music) => (
+        <div className="albums-section">
+          { albums.map((album) => (
             <Link
-              to={ `/album/${music.collectionId}` }
-              key={ music.collectionId }
-              data-testid={ `link-to-album-${music.collectionId}` }
+              to={ `/album/${album.collectionId}` }
+              key={ album.collectionId }
+              data-testid={ `link-to-album-${album.collectionId}` }
             >
-              <div className="music">
+              <div className="album">
                 <img
-                  src={ music.artworkUrl100 }
-                  alt={ `${music.artistName}: ${music.collectionName}` }
+                  src={ album.artworkUrl100 }
+                  alt={ `${album.artistName}: ${album.collectionName}` }
                 />
-                <p>{music.collectionName}</p>
+                <p>{album.collectionName}</p>
               </div>
             </Link>
           ))}
