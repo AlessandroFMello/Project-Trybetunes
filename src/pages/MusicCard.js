@@ -13,6 +13,7 @@ class MusicCard extends Component {
     };
 
     this.getFavoriteSong = this.getFavoriteSong.bind(this);
+    this.renderMusics = this.renderMusics.bind(this);
   }
 
   getFavoriteSong = () => {
@@ -28,9 +29,9 @@ class MusicCard extends Component {
     });
   }
 
-  render() {
+  renderMusics = () => {
     const { trackName, previewUrl, trackId } = this.props;
-    const { loading, checkbox } = this.state;
+    const { checkbox } = this.state;
     return (
       <div>
         <h3>{trackName}</h3>
@@ -50,7 +51,16 @@ class MusicCard extends Component {
             onChange={ this.getFavoriteSong }
           />
         </label>
-        {loading && <LoadingPage />}
+      </div>
+    );
+  }
+
+  render() {
+    const { loading } = this.state;
+    return (
+      <div>
+        { this.renderMusics() }
+        { loading && <LoadingPage /> }
       </div>
     );
   }
