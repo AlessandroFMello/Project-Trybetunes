@@ -67,26 +67,29 @@ class Album extends Component {
     return (
       <div className="album">
         <div className="album-header">
-          <h2 data-testid="artist-name">
-            { album[0].artistName }
-          </h2>
-          <h3 data-testid="album-name">
-            { album[0].collectionName }
-          </h3>
-          <div>
-            {album.slice(1)
-              .map((music, index) => (
-                <MusicCard
-                  key={ index }
-                  trackName={ music.trackName }
-                  previewUrl={ music.previewUrl }
-                  trackId={ music.trackId }
-                  music={ music }
-                  checkFavorites={ this.checkFavorites }
-                />
-              ))}
-            { loading && <LoadingPage /> }
+          <img src={ album[0].artworkUrl100 } alt={ album[0].artistName } />
+          <div className="album-info">
+            <h2 data-testid="artist-name">
+              { album[0].artistName }
+            </h2>
+            <h3 data-testid="album-name">
+              { album[0].collectionName }
+            </h3>
           </div>
+        </div>
+        <div className="album-musics">
+          {album.slice(1)
+            .map((music, index) => (
+              <MusicCard
+                key={ index }
+                trackName={ music.trackName }
+                previewUrl={ music.previewUrl }
+                trackId={ music.trackId }
+                music={ music }
+                checkFavorites={ this.checkFavorites }
+              />
+            ))}
+          { loading && <LoadingPage /> }
         </div>
       </div>
     );

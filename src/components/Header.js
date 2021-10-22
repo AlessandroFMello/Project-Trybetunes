@@ -42,6 +42,7 @@ class Header extends Component {
     return (
       <header data-testid="header-component" className="header">
         <div className="user-div">
+          Logo
           {
             loading
               ? <LoadingPage />

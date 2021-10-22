@@ -3,6 +3,11 @@
   top: 0;
 }
 
+body {
+  height: 100%;
+  width: 100%;
+}
+
 .page-login {
   align-items: center;
   display: flex;
@@ -38,14 +43,14 @@
   background-color: rgb(38, 170, 38);
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 50px;
+  height: 90px;
+  justify-content: space-between;
   width: 100%;
 }
 
 .user-div h1 {
   align-items: center;
-  background-color: rgb(146, 145, 145);
+  background-color: rgb(218, 211, 211);
   border-radius: 50px;
   display: flex;
   flex-direction: row;
@@ -99,12 +104,12 @@
   align-items: center;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .albums {
   align-items: center;
-  background-color: rgb(184, 177, 177);
+  background-color: rgb(218, 214, 214);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -115,10 +120,11 @@
 }
 
 .album {
-  align-items: center;
+  align-items: flex-start;
+  background-color: rgb(218, 211, 211);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .album-header {
@@ -126,4 +132,100 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 50px;
+}
+
+.album-header img {
+  height: 150px;
+}
+
+.album-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.album-musics {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin-top: 50px;
+  /* overflow-y: auto; */
+}
+
+.album-music {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.album-music h3{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.album-music-body {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* video de inspiração utilizado para criar checkbox de coração https://www.youtube.com/watch?v=jQuLIUZIG3k */
+
+input[type="checkbox"] {
+  background-color: white;
+  height: 20px;
+  position: relative;
+  outline: none;
+  transform: rotate(45deg);
+  width: 20px;
+  -webkit-appearance: none; 
+}
+
+input[type="checkbox"]:before {
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius:  75px 75px 0 0;
+  height: 60%;
+  top: -59%;
+  width: 100%;
+}
+
+input[type="checkbox"]:after {
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius:  75px 75px 0 0;
+  height: 60%;
+  right: 79%;
+  top: 20%;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:checked:before,
+input[type="checkbox"]:checked:after {
+  background-color: #fe0f42;
+}
+
+.label-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 50px;
+  margin-top: 10px;
+}
+
+.div-to-hide {
+  color: transparent;
 }
