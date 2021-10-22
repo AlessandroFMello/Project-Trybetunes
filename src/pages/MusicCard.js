@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import LoadingPage from './LoadingPage';
 
 class MusicCard extends Component {
@@ -9,26 +9,68 @@ class MusicCard extends Component {
 
     this.state = {
       loading: false,
+      checkbox: false,
     };
 
     this.getFavoriteSong = this.getFavoriteSong.bind(this);
     this.renderMusics = this.renderMusics.bind(this);
+    this.retrieveFavorites = this.retrieveFavorites.bind(this);
   }
 
-  getFavoriteSong = () => {
-    const { music } = this.props;
+  componentDidMount() {
+    this.retrieveFavorites();
+  }
+
+  retrieveFavorites = () => {
+    const { music: { trackId } } = this.props;
     this.setState({
       loading: true,
     }, async () => {
-      await addSong(music);
-      this.setState({
+      const favoriteMusics = await getFavoriteSongs();
+      const favoriteMusicsArray = favoriteMusics
+        .map((favoriteMusic) => favoriteMusic.trackId);
+      if (favoriteMusicsArray.includes(trackId)) {
+        return this.setState({
+          checkbox: true,
+          loading: false,
+        });
+      }
+      return this.setState({
+        checkbox: false,
         loading: false,
       });
     });
   }
 
+  getFavoriteSong = () => {
+    const { music } = this.props;
+    const { checkbox } = this.state;
+    if (!checkbox) {
+      this.setState({
+        loading: true,
+      }, async () => {
+        await addSong(music);
+        this.setState({
+          loading: false,
+          checkbox: true,
+        });
+      });
+    } else {
+      this.setState({
+        loading: true,
+      }, async () => {
+        await removeSong(music);
+        this.setState({
+          loading: false,
+          checkbox: false,
+        });
+      });
+    }
+  }
+
   renderMusics = () => {
     const { trackName, previewUrl, trackId } = this.props;
+    const { checkbox } = this.state;
     return (
       <div>
         <h3>{trackName}</h3>
@@ -44,6 +86,7 @@ class MusicCard extends Component {
             id={ trackId }
             className="favorite-music"
             type="checkbox"
+            checked={ checkbox }
             onChange={ this.getFavoriteSong }
           />
         </label>
