@@ -187,6 +187,54 @@ body {
   padding-left: 50px;
 }
 
-/* .div-to-hide {
+.div-to-hide {
   color: transparent;
-} */
+}
+
+/*
+Solução sugerida pelo Vinicius Santana turma 15B
+*/
+
+.checkbox {
+  appearance: none;
+  background-color: white;
+  height: 10px;
+  outline: none;
+  position: relative;
+  transform: rotate(45deg);
+  width: 10px;
+}
+
+.checkbox:before {
+  background-color: white;
+  border-radius: 75px 75px 0 0;
+  content: '';
+  height: 60%;
+  position: absolute;
+  top: -59%;
+  width: 100%;
+}
+
+.checkbox:after {
+  background-color: white;
+  border-radius: 75px 75px 0 0;
+  content: '';
+  height: 60%;
+  position: absolute;
+  right: 79%;
+  top: 20%;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+.checkbox:checked {
+  background-color: red;
+}
+
+.checkbox:checked:before {
+  background-color: red;
+}
+
+.checkbox:checked:after {
+  background-color: red;
+}
