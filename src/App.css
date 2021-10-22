@@ -153,6 +153,7 @@ body {
   height: 100%;
   justify-content: center;
   margin-top: 50px;
+
   /* overflow-y: auto; */
 }
 
@@ -162,7 +163,8 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-.album-music h3{
+
+.album-music h3 {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -177,55 +179,14 @@ body {
   justify-content: center;
 }
 
-/* video de inspiração utilizado para criar checkbox de coração https://www.youtube.com/watch?v=jQuLIUZIG3k */
-
-input[type="checkbox"] {
-  background-color: white;
-  height: 20px;
-  position: relative;
-  outline: none;
-  transform: rotate(45deg);
-  width: 20px;
-  -webkit-appearance: none; 
-}
-
-input[type="checkbox"]:before {
-  position: absolute;
-  content: "";
-  background-color: white;
-  border-radius:  75px 75px 0 0;
-  height: 60%;
-  top: -59%;
-  width: 100%;
-}
-
-input[type="checkbox"]:after {
-  position: absolute;
-  content: "";
-  background-color: white;
-  border-radius:  75px 75px 0 0;
-  height: 60%;
-  right: 79%;
-  top: 20%;
-  transform: rotate(-90deg);
-  width: 100%;
-}
-
-input[type="checkbox"]:checked,
-input[type="checkbox"]:checked:before,
-input[type="checkbox"]:checked:after {
-  background-color: #fe0f42;
-}
-
 .label-wrapper {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-left: 50px;
-  margin-top: 10px;
 }
 
-.div-to-hide {
+/* .div-to-hide {
   color: transparent;
-}
+} */
