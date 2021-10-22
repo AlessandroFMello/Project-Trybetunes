@@ -40,15 +40,43 @@ class Header extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <header data-testid="header-component">
-        {
-          loading
-            ? <LoadingPage />
-            : this.renderHeader()
-        }
-        <Link data-testid="link-to-search" to="/search">Pesquisar</Link>
-        <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
-        <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
+      <header data-testid="header-component" className="header">
+        <div className="user-div">
+          {
+            loading
+              ? <LoadingPage />
+              : this.renderHeader()
+          }
+        </div>
+        <nav className="links-nav">
+          <div className="nav-item">
+            <Link
+              data-testid="link-to-search"
+              className="search"
+              to="/search"
+            >
+              Pesquisar
+            </Link>
+          </div>
+          <div className="nav-item">
+            <Link
+              data-testid="link-to-favorites"
+              className="favorites"
+              to="/favorites"
+            >
+              Favoritos
+            </Link>
+          </div>
+          <div className="nav-item">
+            <Link
+              data-testid="link-to-profile"
+              className="profile"
+              to="/profile"
+            >
+              Perfil
+            </Link>
+          </div>
+        </nav>
       </header>
     );
   }
