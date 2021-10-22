@@ -1,7 +1,8 @@
 * {
-  top: 0;
   left: 0;
+  top: 0;
 }
+
 .page-login {
   align-items: center;
   display: flex;
@@ -41,14 +42,15 @@
   padding-right: 50px;
   width: 100%;
 }
+
 .user-div h1 {
   align-items: center;
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(146, 145, 145);
   border-radius: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   height: 50px;
+  justify-content: center;
   width: 200px;
 }
 
@@ -86,7 +88,7 @@
   justify-content: center;
 }
 
-.artist-section{
+.artist-section {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -96,12 +98,11 @@
 .albums-section {
   align-items: center;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
 }
 
-.albums { 
+.albums {
   align-items: center;
   background-color: rgb(184, 177, 177);
   border-radius: 20px;
@@ -111,7 +112,6 @@
   justify-content: center;
   margin-bottom: 25px;
   width: 200px;
-  
 }
 
 .album {
