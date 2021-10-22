@@ -9,7 +9,6 @@ class MusicCard extends Component {
 
     this.state = {
       loading: false,
-      checkbox: false,
     };
 
     this.getFavoriteSong = this.getFavoriteSong.bind(this);
@@ -24,14 +23,12 @@ class MusicCard extends Component {
       await addSong(music);
       this.setState({
         loading: false,
-        checkbox: true,
       });
     });
   }
 
   renderMusics = () => {
     const { trackName, previewUrl, trackId } = this.props;
-    const { checkbox } = this.state;
     return (
       <div>
         <h3>{trackName}</h3>
@@ -47,7 +44,6 @@ class MusicCard extends Component {
             id={ trackId }
             className="favorite-music"
             type="checkbox"
-            checked={ checkbox }
             onChange={ this.getFavoriteSong }
           />
         </label>
