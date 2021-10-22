@@ -43,7 +43,7 @@
 }
 .user-div h1 {
   align-items: center;
-  background-color: grey;
+  background-color: rgb(128, 128, 128);
   border-radius: 50px;
   display: flex;
   flex-direction: row;
@@ -76,4 +76,54 @@
   height: 50px;
   justify-content: space-around;
   width: 100%;
+}
+
+.search-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: center;
+}
+
+.artist-section{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.albums-section {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.albums { 
+  align-items: center;
+  background-color: rgb(184, 177, 177);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  margin-bottom: 25px;
+  width: 200px;
+  
+}
+
+.album {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.album-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

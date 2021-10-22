@@ -66,7 +66,7 @@ class Album extends Component {
     const { album, loading } = this.state;
     return (
       <div className="album">
-        <div>
+        <div className="album-header">
           <h2 data-testid="artist-name">
             { album[0].artistName }
           </h2>

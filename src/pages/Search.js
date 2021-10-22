@@ -92,11 +92,10 @@ class Search extends Component {
     );
   }
 
-  render() {
-    const { enterButtonDisabled, loading } = this.state;
+  renderForm = () => {
+    const { enterButtonDisabled } = this.state;
     return (
-      <div data-testid="page-search">
-        <Header />
+      <div className="search-form">
         <form onSubmit={ this.onEnterButtonSubmit }>
           <label htmlFor="search-form">
             <input
@@ -116,6 +115,16 @@ class Search extends Component {
             Pesquisar
           </button>
         </form>
+      </div>
+    );
+  }
+
+  render() {
+    const { loading } = this.state;
+    return (
+      <div data-testid="page-search">
+        <Header />
+        { this.renderForm() }
         { loading ? <LoadingPage /> : this.renderArtist() }
 
       </div>
