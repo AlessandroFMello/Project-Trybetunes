@@ -86,7 +86,7 @@ class Album extends Component {
                 previewUrl={ music.previewUrl }
                 trackId={ music.trackId }
                 music={ music }
-                checkFavorites={ this.checkFavorites }
+                // checkFavorites={ this.checkFavorites }
               />
             ))}
           { loading && <LoadingPage /> }
