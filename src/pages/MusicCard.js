@@ -82,6 +82,7 @@ class MusicCard extends Component {
           </audio>
           <div className="label-wrapper">
             <label htmlFor={ trackId }>
+              <div className="div-to-hide">Favorita</div>
               <input
                 data-testid={ `checkbox-music-${trackId}` }
                 id={ trackId }
@@ -91,7 +92,6 @@ class MusicCard extends Component {
                 onChange={ this.getFavoriteSong }
               />
             </label>
-            <div className="div-to-hide">Favorita</div>
           </div>
         </div>
       </div>
