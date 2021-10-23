@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import LoadingPage from './LoadingPage';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import MusicCard from './MusicCard';
-import Header from '../components/Header';
 
 class Favorites extends Component {
   constructor() {
@@ -67,7 +66,6 @@ class Favorites extends Component {
     const { myFavorites, loading } = this.state;
     return (
       <div data-testid="page-favorites">
-        <Header />
         {loading
           ? <LoadingPage />
           : (myFavorites.length > 0 && this.renderFavorites()) }

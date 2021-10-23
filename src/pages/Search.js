@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingPage from './LoadingPage';
-import Header from '../components/Header';
 
 class Search extends Component {
   constructor() {
@@ -123,7 +122,6 @@ class Search extends Component {
     const { loading } = this.state;
     return (
       <div data-testid="page-search">
-        <Header />
         { this.renderForm() }
         { loading ? <LoadingPage /> : this.renderArtist() }
 

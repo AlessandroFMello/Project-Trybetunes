@@ -7,24 +7,24 @@ import Favorites from './pages/Favorites';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
-// import Header from './components/Header';
+import Header from './components/Header';
 import './App.css';
 
 class App extends React.Component {
-  // constructor() {
-  //   super();
-  //   // this.conditionalRenderLogin = this.conditionalRenderLogin.bind(this);
-  // }
+  constructor() {
+    super();
+    this.conditionalRenderLogin = this.conditionalRenderLogin.bind(this);
+  }
 
-  // conditionalRenderLogin = () => {
-  //   if (window.location.pathname !== '/') return <Header />;
-  // }
+  conditionalRenderLogin = () => {
+    if (window.location.pathname !== '/') return <Header />;
+  }
 
   render() {
     return (
       <BrowserRouter>
         {/* dica do Denis Johnatan */}
-        {/* { this.conditionalRenderLogin() } */}
+        { this.conditionalRenderLogin() }
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/search" component={ Search } />
