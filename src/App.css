@@ -241,7 +241,7 @@ Solução sugerida pelo Vinicius Santana turma 15B
 
 .favorite-musics {
   align-items: center;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 10px;
@@ -249,7 +249,7 @@ Solução sugerida pelo Vinicius Santana turma 15B
 
 .favorite-music {
   align-items: stretch;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 10px;

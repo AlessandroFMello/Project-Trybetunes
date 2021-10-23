@@ -12,7 +12,6 @@ class Favorites extends Component {
     };
 
     this.retrieveFavoriteSongs = this.retrieveFavoriteSongs.bind(this);
-    this.checkFavorites = this.checkFavorites.bind(this);
     this.renderFavorites = this.renderFavorites.bind(this);
   }
 
@@ -23,7 +22,7 @@ class Favorites extends Component {
   componentDidUpdate(_prevProps, prevState) {
     const { myFavorites } = this.state;
     if (prevState.myFavorites !== myFavorites) {
-      this.checkFavorites();
+      this.renderFavorites();
     }
   }
 
@@ -36,14 +35,6 @@ class Favorites extends Component {
         loading: false,
         myFavorites: [...favoriteMusics],
       });
-    });
-  }
-
-  checkFavorites = () => {
-    const { myFavorites } = this.state;
-    myFavorites.forEach((favorite) => {
-      const favoriteMusic = document.getElementById(favorite.trackId);
-      if (favoriteMusic) favoriteMusic.checked = true;
     });
   }
 
