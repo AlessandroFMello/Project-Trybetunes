@@ -238,3 +238,19 @@ Solução sugerida pelo Vinicius Santana turma 15B
 .checkbox:checked:after {
   background-color: red;
 }
+
+.favorite-musics {
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+
+.favorite-music {
+  align-items: stretch;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}

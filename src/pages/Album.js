@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
 import LoadingPage from './LoadingPage';
@@ -86,7 +85,6 @@ class Album extends Component {
                 previewUrl={ music.previewUrl }
                 trackId={ music.trackId }
                 music={ music }
-                // checkFavorites={ this.checkFavorites }
               />
             ))}
           { loading && <LoadingPage /> }
@@ -99,7 +97,6 @@ class Album extends Component {
     const { album } = this.state;
     return (
       <div data-testid="page-album">
-        <Header />
         { album.length > 0 && this.renderAlbumMusics() }
       </div>
     );
