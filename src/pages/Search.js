@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingPage from './LoadingPage';
 
@@ -122,6 +123,7 @@ class Search extends Component {
     const { loading } = this.state;
     return (
       <div data-testid="page-search">
+        <Header />
         { this.renderForm() }
         { loading ? <LoadingPage /> : this.renderArtist() }
 

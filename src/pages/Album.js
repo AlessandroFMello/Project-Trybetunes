@@ -4,6 +4,7 @@ import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
 import LoadingPage from './LoadingPage';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import Header from '../components/Header';
 
 class Album extends Component {
   constructor() {
@@ -77,16 +78,18 @@ class Album extends Component {
           </div>
         </div>
         <div className="album-musics">
-          {album.slice(1)
-            .map((music, index) => (
-              <MusicCard
-                key={ index }
-                trackName={ music.trackName }
-                previewUrl={ music.previewUrl }
-                trackId={ music.trackId }
-                music={ music }
-              />
-            ))}
+          {
+            album.slice(1)
+              .map((music, index) => (
+                <MusicCard
+                  key={ index }
+                  trackName={ music.trackName }
+                  previewUrl={ music.previewUrl }
+                  trackId={ music.trackId }
+                  music={ music }
+                />
+              ))
+          }
           { loading && <LoadingPage /> }
         </div>
       </div>
@@ -97,6 +100,7 @@ class Album extends Component {
     const { album } = this.state;
     return (
       <div data-testid="page-album">
+        <Header />
         { album.length > 0 && this.renderAlbumMusics() }
       </div>
     );
